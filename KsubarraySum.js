@@ -1,9 +1,9 @@
-// sliding window
+// sliding window //sum of target window size is equal to targetSum
 
 let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-k = 3; //suarray size
-targetSum = 6;
+let k = 3; //suarray size
+let targetSum = 6;
 
 let sum = 0;
 for (let i = 0; i < k; i++) {
@@ -13,25 +13,35 @@ for (let i = 0; i < k; i++) {
 let left = 0;
 let right = k - 1;
 
-while (right < arr.length) {
-  console.log(sum);
-  if (targetSum == sum) {
-    console.log(arr[left], arr[right]); //number range
-    console.log("Subarray found:", arr.slice(left, right + 1));
+// while (right < arr.length) {
+//   console.log(sum);
+//   if (targetSum == sum) {
+//     console.log(arr[left], arr[right]); //number range
+//     console.log("Subarray found:", arr.slice(left, right + 1));
+//     break;
+//   }
+
+//   sum = sum - arr[left];
+
+//   left++;
+//   right++;
+
+//   // only add if right is still inside array
+//   if(right < arr.length){
+//       sum = sum + arr[right];
+//   }
+// }
+
+// slide the window // use for loop for sliding window
+for (let right = k; right < arr.length; right++) {
+  sum += arr[right];        // add next
+  sum -= arr[right - k];    // remove previous
+
+  if (sum === targetSum) {
+    console.log(arr.slice(right - k + 1, right + 1));
     break;
   }
-
-  sum = sum - arr[left];
-
-  left++;
-  right++;
-
-  // only add if right is still inside array
-  if(right < arr.length){
-      sum = sum + arr[right];
-  }
 }
-
 
 
 
