@@ -1,15 +1,15 @@
 let arr = [10, 20, 50, 70, 100, 160, 190]
 
-let target = 20;
+let target = 2900;
 
 let last = arr.length - 1;
 let first = 0;
 
 let foundIndex = -1;
 
-for (let i = 0; i < arr.length; i++) {
+while (first <= last) {
 
-    let mid = (first + last) / 2;
+    let mid = Math.floor((first + last) / 2);
 
     if (arr[mid] == target) {
 
@@ -31,3 +31,5 @@ for (let i = 0; i < arr.length; i++) {
 }
 
 console.log(foundIndex)
+a=1/2
+console.log(a)
